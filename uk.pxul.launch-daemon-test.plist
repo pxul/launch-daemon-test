@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>uk.pxul.launch-daemon-test</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>-c</string>
+        <string>import datetime; print(datetime.datetime.now())</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/var/log/uk.pxul.launch-daemon-test-out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/uk.pxul.launch-daemon-test-err.log</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StartInterval</key>
+    <integer>10</integer>
+
+    <key>KeepAlive</key>
+    <true/>  <!-- Keeps it running if it stops -->
+</dict>
+</plist>
