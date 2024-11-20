@@ -7,8 +7,17 @@ function load() {
   sudo cp "$SCRIPT" "$DST"
   sudo chmod 644 "$DST/$SCRIPT"
   sudo chown root:wheel "$DST/$SCRIPT"
-  sudo launchctl unload "$DST/$SCRIPT"
   sudo launchctl load "$DST/$SCRIPT"
+}
+
+function unload() {
+  sudo launchctl unload "$DST/$SCRIPT"
+  sudo rm -f "$DST/$SCRIPT"
+}
+
+function reload() {
+  unload
+  load
 }
 
 function logs() {
@@ -16,13 +25,19 @@ function logs() {
 }
 
 function usage() {
-    echo "Usage: $0 <load|logs>"
+    echo "Usage: $0 <load|unload|reload|logs>"
     exit 1
 }
 
 case $1 in
 load)
   load
+  ;;
+unload)
+  unload
+  ;;
+reload)
+  reload
   ;;
 logs)
   logs

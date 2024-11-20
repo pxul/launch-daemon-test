@@ -4,5 +4,5 @@ Load/reload launch daemon configuration using script
 
 ```console
 $ ./do
-Usage: ./do <load|logs>
+Usage: ./do <load|unload|reload|logs>
 ```
